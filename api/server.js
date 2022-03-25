@@ -2,11 +2,13 @@
 const express = require('express')
 
 const ProjectRouter = require('./project/router')
+const ResourceRouter = require('./resource/router')
 
 const server = express()
 
 server.use(express.json())
 server.use('/api/projects', ProjectRouter)
+server.use('/api/resources', ResourceRouter)
 
 server.use((error, req, res, next) => {
   res.status(500).json({
